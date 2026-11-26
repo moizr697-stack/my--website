@@ -1,1 +1,1137 @@
-# my--website
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow & Gift | Skincare and Gifts</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #e9a6a9;
+  --dark: #292522;
+  --cream: #fff9f5;
+  --rose: #f8e8e5;
+  --muted: #817773;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dark);
+  background: var(--cream);
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.topbar {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+
+header {
+  background: rgba(255,249,245,.96);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #f1e6df;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 29px;
+  font-weight: bold;
+  color: #bd777a;
+}
+
+.logo span { color: var(--dark); }
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+nav a:hover { color: #bd777a; }
+
+.header-actions {
+  display: flex;
+  gap: 17px;
+  align-items: center;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 21px;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -9px;
+  background: #c47f82;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 3px 6px;
+}
+
+.menu-btn { display: none; }
+
+/* HERO */
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 70px 9%;
+  background:
+  linear-gradient(90deg, rgba(255,240,234,.96), rgba(255,240,234,.18)),
+  url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.hero-content { max-width: 510px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  color: #b67578;
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(43px, 6vw, 75px);
+  line-height: 1.08;
+  margin: 20px 0;
+}
+
+.hero p {
+  color: #625650;
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 410px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #b87578;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  margin-top: 27px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--dark);
+  transform: translateY(-3px);
+}
+
+/* BENEFITS */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding: 30px 7%;
+  background: white;
+  gap: 20px;
+}
+
+.benefit {
+  text-align: center;
+  padding: 10px;
+}
+
+.benefit .emoji { font-size: 26px; }
+
+.benefit h4 {
+  margin: 9px 0 5px;
+  font-size: 13px;
+}
+
+.benefit p {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* SECTION */
+
+.section {
+  padding: 85px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading span {
+  color: #b87578;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin: 10px 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* CATEGORIES */
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.category {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.category img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .6s;
+}
+
+.category:hover img { transform: scale(1.08); }
+
+.category-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px 20px;
+  color: white;
+  background: linear-gradient(transparent,rgba(0,0,0,.7));
+}
+
+.category-info h3 {
+  font-family: 'Playfair Display',serif;
+  font-size: 26px;
+}
+
+.category-info a {
+  color: white;
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 9px;
+  text-decoration: none;
+}
+
+/* PRODUCTS */
+
+.products-section { background: #fff; }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.filter-btn {
+  padding: 10px 21px;
+  border: 1px solid #ead8d1;
+  background: transparent;
+  color: var(--dark);
+  font-size: 12px;
+  transition: .3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #b87578;
+  color: white;
+  border-color: #b87578;
+}
+
+.search-box {
+  display: block;
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto 30px;
+  padding: 13px 17px;
+  border: 1px solid #ead8d1;
+  background: var(--cream);
+  outline: none;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 25px;
+}
+
+.product-card {
+  position: relative;
+  background: white;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  height: 260px;
+  background: #f5efeb;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.product-card:hover img { transform: scale(1.06); }
+
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #c98588;
+  color: white;
+  padding: 6px 10px;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.product-info { padding: 17px 5px; }
+
+.product-info .category-label {
+  font-size: 10px;
+  color: #b87578;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-info h3 {
+  font-family: 'Playfair Display',serif;
+  font-size: 18px;
+  margin: 7px 0;
+}
+
+.rating {
+  color: #c28c53;
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.add-btn {
+  width: 100%;
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.add-btn:hover { background: #b87578; }
+
+/* GIFT BANNER */
+
+.gift-banner {
+  margin: 30px 7%;
+  background:
+  linear-gradient(90deg,rgba(46,33,31,.75),rgba(46,33,31,.1)),
+  url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=1500&q=85') center/cover;
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  padding: 50px 7%;
+  color: white;
+}
+
+.gift-content { max-width: 450px; }
+
+.gift-content h2 {
+  font-family: 'Playfair Display',serif;
+  font-size: 46px;
+  margin: 15px 0;
+}
+
+.gift-content p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+  text-align: center;
+  background: #f5e5e1;
+  padding: 75px 20px;
+}
+
+.newsletter h2 {
+  font-family: 'Playfair Display',serif;
+  font-size: 37px;
+  margin-bottom: 12px;
+}
+
+.newsletter p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.newsletter form {
+  margin: 25px auto 0;
+  max-width: 470px;
+  display: flex;
+}
+
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+
+.newsletter button {
+  padding: 15px 22px;
+  background: var(--dark);
+  color: white;
+  border: none;
+}
+
+/* FOOTER */
+
+footer {
+  background: #292522;
+  color: white;
+  padding: 55px 7% 25px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 35px;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display',serif;
+  font-size: 28px;
+  color: #e9a6a9;
+}
+
+footer p {
+  color: #c6bcb6;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 13px;
+}
+
+footer h4 { margin-bottom: 17px; }
+
+footer a {
+  display: block;
+  color: #c6bcb6;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+footer a:hover { color: #e9a6a9; }
+
+.copyright {
+  border-top: 1px solid #514742;
+  text-align: center;
+  padding-top: 23px;
+  margin-top: 40px;
+}
+
+/* CART DRAWER */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  right: -420px;
+  top: 0;
+  width: min(400px,100%);
+  height: 100%;
+  background: white;
+  z-index: 201;
+  padding: 25px;
+  transition: .35s;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-drawer.show { right: 0; }
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+.close-cart {
+  border: none;
+  background: none;
+  font-size: 25px;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cart-item img {
+  width: 65px;
+  height: 70px;
+  object-fit: cover;
+}
+
+.cart-item h4 { font-size: 13px; }
+.cart-item p { font-size: 12px; margin-top: 6px; }
+
+.quantity {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.quantity button {
+  width: 23px;
+  height: 23px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.remove {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #b87578;
+}
+
+.cart-total {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.cart-total div {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.checkout {
+  width: 100%;
+  padding: 16px;
+  background: #b87578;
+  color: white;
+  border: none;
+  margin-top: 17px;
+}
+
+.empty-cart {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 50px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  .footer-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:700px) {
+  header { padding: 17px 5%; }
+  .menu-btn { display: block; }
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--cream);
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+    display: none;
+    border-bottom: 1px solid #eee;
+  }
+  nav.open { display: flex; }
+  .logo { font-size: 23px; }
+  .hero {
+    min-height: 490px;
+    padding: 55px 7%;
+    background-position: 60% center;
+  }
+  .hero-content { background: rgba(255,240,234,.68); padding: 15px; }
+  .benefits { grid-template-columns: repeat(2,1fr); }
+  .section { padding: 65px 5%; }
+  .section-heading h2 { font-size: 32px; }
+  .categories { grid-template-columns: 1fr; }
+  .category { height: 300px; }
+  .product-grid { gap: 15px; }
+  .product-image { height: 200px; }
+  .product-info h3 { font-size: 15px; }
+  .gift-banner { margin: 15px 4%; min-height: 330px; }
+  .gift-content h2 { font-size: 36px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width:390px) {
+  .product-grid { grid-template-columns: 1fr; }
+  .product-image { height: 280px; }
+  .header-actions { gap: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  FREE DELIVERY ON ORDERS ABOVE Rs. 5,000 | SHOP YOUR GLOW ✨
+</div>
+
+<header>
+  <div class="logo">Glow <span>& Gift.</span></div>
+
+  <nav id="navigation">
+    <a href="#home">HOME</a>
+    <a href="#categories">CATEGORIES</a>
+    <a href="#shop">SHOP</a>
+    <a href="#gifts">GIFT COLLECTION</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <div class="header-actions">
+    <button class="icon-btn" onclick="document.getElementById('search').focus()">⌕</button>
+    <button class="icon-btn" onclick="toggleCart()">
+      ♡ <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="icon-btn menu-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">BEAUTY • SELF CARE • HAPPINESS</span>
+    <h1>Your Beauty,<br>Your Happy Place.</h1>
+    <p>
+      Discover luxurious skincare essentials and beautiful
+      gifts designed to make every moment special.
+      Because you deserve a little extra love.
+    </p>
+    <a href="#shop" class="btn">EXPLORE COLLECTION</a>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+
+<section class="benefits">
+  <div class="benefit">
+    <div class="emoji">🌸</div>
+    <h4>Premium Quality</h4>
+    <p>Carefully selected products</p>
+  </div>
+  <div class="benefit">
+    <div class="emoji">🚚</div>
+    <h4>Fast Delivery</h4>
+    <p>Delivered to your doorstep</p>
+  </div>
+  <div class="benefit">
+    <div class="emoji">🎁</div>
+    <h4>Beautiful Packaging</h4>
+    <p>Perfect for gifting</p>
+  </div>
+  <div class="benefit">
+    <div class="emoji">💗</div>
+    <h4>Made With Love</h4>
+    <p>A little happiness in every order</p>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+  <div class="section-heading">
+    <span>SHOP BY CATEGORY</span>
+    <h2>Find Your Favorites</h2>
+    <p>Everything you need to feel beautiful and loved.</p>
+  </div>
+
+  <div class="categories">
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80" alt="Skincare products">
+      <div class="category-info">
+        <h3>Skincare Essentials</h3>
+        <a href="#shop">EXPLORE NOW →</a>
+      </div>
+    </div>
+
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80" alt="Beauty products">
+      <div class="category-info">
+        <h3>Beauty & Glow</h3>
+        <a href="#shop">EXPLORE NOW →</a>
+      </div>
+    </div>
+
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=700&q=80" alt="Gift boxes">
+      <div class="category-info">
+        <h3>Special Gifts</h3>
+        <a href="#gifts">EXPLORE NOW →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="section products-section" id="shop">
+  <div class="section-heading">
+    <span>OUR BESTSELLERS</span>
+    <h2>Shop Our Collection</h2>
+    <p>Little things that make a big difference.</p>
+  </div>
+
+  <input
+    type="search"
+    class="search-box"
+    id="search"
+    placeholder="Search skincare, gifts and more..."
+    oninput="renderProducts()"
+  >
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter('All',this)">All Products</button>
+    <button class="filter-btn" onclick="setFilter('Skincare',this)">Skincare</button>
+    <button class="filter-btn" onclick="setFilter('Beauty',this)">Beauty</button>
+    <button class="filter-btn" onclick="setFilter('Gifts',this)">Gifts</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- GIFT BANNER -->
+
+<section class="gift-banner" id="gifts">
+  <div class="gift-content">
+    <span class="eyebrow" style="color:#ffd6d2">A GIFT FULL OF LOVE</span>
+    <h2>Make Every Moment Special.</h2>
+    <p>
+      Surprise someone you love with thoughtfully
+      curated gift boxes, beauty essentials and
+      unforgettable little moments.
+    </p>
+    <a href="#shop" class="btn">SHOP GIFT COLLECTION</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+  <span class="eyebrow">STAY IN THE GLOW</span>
+  <h2>Join Our Beauty Club</h2>
+  <p>Get exclusive offers, new arrivals and beauty inspiration.</p>
+
+  <form id="newsletterForm">
+    <input type="email" placeholder="Enter your email address" required>
+    <button type="submit">SUBSCRIBE</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Glow & Gift.</div>
+      <p>
+        Your destination for premium skincare,
+        beauty essentials and thoughtful gifts.
+        Celebrate yourself, every single day.
+      </p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#categories">Categories</a>
+      <a href="#gifts">Gift Collection</a>
+    </div>
+
+    <div>
+      <h4>Customer Care</h4>
+      <a href="#contact">Contact Us</a>
+      <a href="#contact">Shipping Policy</a>
+      <a href="#contact">Returns</a>
+      <a href="#contact">FAQs</a>
+    </div>
+
+    <div>
+      <h4>Follow Us</h4>
+      <a href="https://instagram.com">Instagram</a>
+      <a href="https://facebook.com">Facebook</a>
+      <a href="https://pinterest.com">Pinterest</a>
+      <a href="mailto:hello@glowandgift.com">Email Us</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <p>© 2026 Glow & Gift. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- CART -->
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Your Shopping Bag 🛍️</h3>
+    <button class="close-cart" onclick="toggleCart()">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-total">
+    <div>
+      <span>Total</span>
+      <span id="cartTotal">Rs. 0</span>
+    </div>
+    <button class="checkout" onclick="checkout()">PROCEED TO CHECKOUT →</button>
+  </div>
+</div>
+
+<script>
+const products = [
+  {
+    id: 1,
+    name: "Hydrating Face Serum",
+    category: "Skincare",
+    price: 2200,
+    tag: "BESTSELLER",
+    image: "photo-1608248543803-ba4f8c70ae0b"
+  },
+  {
+    id: 2,
+    name: "Luxury Skin Cream",
+    category: "Skincare",
+    price: 2800,
+    tag: "POPULAR",
+    image: "photo-1601049541289-9b1b7bbbfe19"
+  },
+  {
+    id: 3,
+    name: "Rose Beauty Set",
+    category: "Beauty",
+    price: 3500,
+    tag: "NEW",
+    image: "photo-1547887538-e3a2f32cb1cc"
+  },
+  {
+    id: 4,
+    name: "Elegant Gift Box",
+    category: "Gifts",
+    price: 4200,
+    tag: "SPECIAL",
+    image: "photo-1513201099705-a9746e1e201f"
+  },
+  {
+    id: 5,
+    name: "Daily Skincare Kit",
+    category: "Skincare",
+    price: 3900,
+    tag: "TRENDING",
+    image: "photo-1556229010-6c3f2c9ca5f8"
+  },
+  {
+    id: 6,
+    name: "Luxury Perfume",
+    category: "Beauty",
+    price: 4800,
+    tag: "PREMIUM",
+    image: "photo-1541643600914-78b084683601"
+  },
+  {
+    id: 7,
+    name: "Self Care Gift Set",
+    category: "Gifts",
+    price: 5200,
+    tag: "GIFT PICK",
+    image: "photo-1549465220-1a8b9238cd48"
+  },
+  {
+    id: 8,
+    name: "Glow Face Essentials",
+    category: "Skincare",
+    price: 2500,
+    tag: "POPULAR",
+    image: "photo-1571781926291-c477ebfd024b"
+  }
+];
+
+let cart = [];
+let currentFilter = "All";
+
+const formatPrice = price =>
+  "Rs. " + price.toLocaleString("en-PK");
+
+function renderProducts() {
+  const search = document.getElementById("search").value.toLowerCase();
+
+  const filtered = products.filter(product =>
+    (currentFilter === "All" || product.category === currentFilter) &&
+    product.name.toLowerCase().includes(search)
+  );
+
+  const grid = document.getElementById("productGrid");
+
+  if (!filtered.length) {
+    grid.innerHTML = "<p>No products found. Try another search.</p>";
+    return;
+  }
+
+  grid.innerHTML = filtered.map(product => `
+    <div class="product-card">
+      <div class="product-image">
+        <img
+          src="https://images.unsplash.com/${product.image}?auto=format&fit=crop&w=600&q=80"
+          alt="${product.name}"
+          loading="lazy"
+        >
+        <span class="tag">${product.tag}</span>
+      </div>
+      <div class="product-info">
+        <span class="category-label">${product.category}</span>
+        <h3>${product.name}</h3>
+        <div class="rating">★★★★★ <span style="color:#999"> (4.9)</span></div>
+        <div class="price">${formatPrice(product.price)}</div>
+        <button class="add-btn" onclick="addToCart(${product.id})">
+          ADD TO CART +
+        </button>
+      </div>
+    </div>
+  `).join("");
+}
+
+function setFilter(filter, button) {
+  currentFilter = filter;
+
+  document.querySelectorAll(".filter-btn").forEach(btn =>
+    btn.classList.remove("active")
+  );
+
+  button.classList.add("active");
+  renderProducts();
+}
+
+function addToCart(id) {
+  const item = cart.find(p => p.id === id);
+
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({
+      ...products.find(p => p.id === id),
+      quantity: 1
+    });
+  }
+
+  updateCart();
+  toggleCart(true);
+}
+
+function updateCart() {
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const total = cart.reduce((sum, item) =>
+    sum + item.price * item.quantity, 0
+  );
+
+  document.getElementById("cartCount").textContent = count;
+  document.getElementById("cartTotal").textContent = formatPrice(total);
+
+  const container = document.getElementById("cartItems");
+
+  if (!cart.length) {
+    container.innerHTML =
+      '<div class="empty-cart">Your bag is empty 🌸<br><br>Start shopping to add your favorites!</div>';
+    return;
+  }
+
+  container.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <img src="https://images.unsplash.com/${item.image}?auto=format&fit=crop&w=150&q=80" alt="${item.name}">
+      <div>
+        <h4>${item.name}</h4>
+        <p>${formatPrice(item.price)}</p>
+        <div class="quantity">
+          <button onclick="changeQuantity(${item.id},-1)">−</button>
+          <span>${item.quantity}</span>
+          <button onclick="changeQuantity(${item.id},1)">+</button>
+        </div>
+      </div>
+      <button class="remove" onclick="removeItem(${item.id})">✕</button>
+    </div>
+  `).join("");
+}
+
+function changeQuantity(id, amount) {
+  const item = cart.find(p => p.id === id);
+  if (!item) return;
+
+  item.quantity += amount;
+
+  if (item.quantity <= 0) {
+    cart = cart.filter(p => p.id !== id);
+  }
+
+  updateCart();
+}
+
+function removeItem(id) {
+  cart = cart.filter(p => p.id !== id);
+  updateCart();
+}
+
+function toggleCart(forceOpen) {
+  const drawer = document.getElementById("cartDrawer");
+  const overlay = document.getElementById("overlay");
+
+  const shouldOpen = forceOpen === true
+    ? true
+    : !drawer.classList.contains("show");
+
+  drawer.classList.toggle("show", shouldOpen);
+  overlay.classList.toggle("show", shouldOpen);
+}
+
+function toggleMenu() {
+  document.getElementById("navigation").classList.toggle("open");
+}
+
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById("navigation").classList.remove("open");
+  });
+});
+
+function checkout() {
+  if (!cart.length) {
+    alert("Your shopping bag is empty!");
+    return;
+  }
+
+  const order = cart.map(item =>
+    `${item.name} x ${item.quantity} = ${formatPrice(item.price * item.quantity)}`
+  ).join("\n");
+
+  const total = cart.reduce((sum, item) =>
+    sum + item.price * item.quantity, 0
+  );
+
+  alert(
+    "Your order summary:\n\n" +
+    order +
+    "\n\nTotal: " + formatPrice(total) +
+    "\n\nThank you for shopping with Glow & Gift!"
+  );
+}
+
+document.getElementById("newsletterForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Thank you for joining our beauty club! 💗");
+  this.reset();
+});
+
+renderProducts();
+updateCart();
+</script>
+
+</body>
+</html>
